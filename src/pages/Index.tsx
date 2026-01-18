@@ -1,4 +1,5 @@
 import Hero from "@/components/ui/animated-shader-hero";
+import puffLogo from "@/assets/puff-character.png";
 
 const Index = () => {
   const handleGetStarted = () => {
@@ -11,6 +12,7 @@ const Index = () => {
 
   return (
     <Hero
+      logo={puffLogo}
       trustBadge={{
         text: "Precision AI evaluation for enterprise teams",
         icons: ["◆"]
