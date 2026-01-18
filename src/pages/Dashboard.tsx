@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '@/contexts/UserContext';
-import { Upload, AlertTriangle, CheckCircle, TrendingUp, Zap, Shield, Code, Layers, ArrowRight, LogOut } from 'lucide-react';
+import { AlertTriangle, CheckCircle, TrendingUp, Zap, Shield, Code, Layers, ArrowRight, LogOut, Sparkles } from 'lucide-react';
+import { GlassButton } from '@/components/ui/glass-button';
 import puffLogo from '@/assets/puff-character.png';
 
 // Shader background component
@@ -349,14 +350,15 @@ const Dashboard: React.FC = () => {
 
           {!hasAutomations ? (
             /* Empty State - Create Questions CTA */
-            <section className="max-w-xl mx-auto text-center">
-              <button
+            <section className="max-w-xl mx-auto text-center flex flex-col items-center">
+              <GlassButton
+                size="lg"
+                contentClassName="flex items-center gap-3 text-xl font-semibold"
                 onClick={() => navigate('/n8n-workflows')}
-                className="w-full px-8 py-6 bg-white text-black hover:bg-white/90 rounded-2xl font-semibold text-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-white/20 flex items-center justify-center gap-3"
               >
-                <Zap className="w-6 h-6" />
-                Create Questions
-              </button>
+                <span>Create Questions</span>
+                <Sparkles className="h-6 w-6" />
+              </GlassButton>
               <p className="text-center text-white/40 text-sm mt-6 transition-opacity duration-500">
                 "{mrsPuffQuotes[quoteIndex]}" — Mrs. Puff
               </p>
