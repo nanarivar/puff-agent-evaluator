@@ -1,13 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Hero from "@/components/ui/animated-shader-hero";
 
 const Index = () => {
+  const handleGetStarted = () => {
+    console.log('Get Started clicked');
+  };
+
+  const handleLearnMore = () => {
+    console.log('Learn More clicked');
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <Hero
+      trustBadge={{
+        text: "Precision AI evaluation for enterprise teams",
+        icons: ["◆"]
+      }}
+      headline={{
+        line1: "Know Your Agents",
+        line2: "Measure Performance"
+      }}
+      subtitle="PUFF is the meta-agent that reviews AI agents. Know which agents perform, why they perform, and how to improve them."
+      buttons={{
+        primary: {
+          text: "Start Evaluation",
+          onClick: handleGetStarted
+        },
+        secondary: {
+          text: "View Documentation",
+          onClick: handleLearnMore
+        }
+      }}
+    />
   );
 };
 
