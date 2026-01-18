@@ -1,9 +1,10 @@
 /**
  * API Client for Questions
  * 
- * Client-side utility to fetch questions from the backend API.
- * The backend API handles Supabase authentication securely with the service role key.
+ * Client-side utility to fetch questions directly from Supabase.
  */
+
+import { supabase } from "@/lib/supabase/client";
 
 export interface Question {
   id: string;
@@ -12,10 +13,8 @@ export interface Question {
   created_at?: string;
 }
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
-
 /**
- * Fetches questions for a given workflow ID from the backend API
+ * Fetches questions for a given workflow ID directly from Supabase
  * 
  * @param workflowId - The workflow ID to fetch questions for
  * @returns Promise resolving to an array of questions
@@ -26,22 +25,15 @@ export async function fetchQuestions(workflowId: string): Promise<Question[]> {
     throw new Error("workflowId is required");
   }
 
-  const url = new URL(`${API_BASE_URL}/api/questions`);
-  url.searchParams.set("workflowId", workflowId);
+  const { data, error } = await supabase
+    .from("questions")
+    .select("id, question, workflow_id, created_at")
+    .eq("workflow_id", workflowId)
+    .order("created_at", { ascending: false });
 
-  const response = await fetch(url.toString(), {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    const errorMessage = errorData.message || errorData.error || `HTTP ${response.status}: ${response.statusText}`;
-    throw new Error(errorMessage);
+  if (error) {
+    throw new Error(`Failed to fetch questions: ${error.message}`);
   }
 
-  const questions: Question[] = await response.json();
-  return questions;
+  return data || [];
 }

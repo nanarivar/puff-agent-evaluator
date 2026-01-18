@@ -5,23 +5,21 @@
 Create a `.env` file in the root directory with the following variables:
 
 ```env
-# Supabase Configuration
-SUPABASE_URL=https://cvbnzcspfsllrjceoblm.supabase.co/
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
+# Supabase Configuration (for frontend)
+VITE_SUPABASE_URL=https://cvbnzcspfsllrjceoblm.supabase.co
+VITE_SUPABASE_ANON_KEY=your_anon_key_here
 
 # Backend API Configuration
 PORT=3001
-
-# Frontend API Base URL
 VITE_API_BASE_URL=http://localhost:3001
 ```
 
-### Getting Your Supabase Service Role Key
+### Getting Your Supabase Anon Key
 
 1. Go to your Supabase project dashboard
 2. Navigate to Settings > API
-3. Copy the "service_role" key (NOT the anon key)
-4. **IMPORTANT**: Never commit this key to version control or expose it in client-side code
+3. Copy the "anon" public key
+4. This key is safe to use client-side (RLS policies protect your data)
 
 ## Running the Application
 
@@ -58,28 +56,32 @@ VITE_API_BASE_URL=http://localhost:3001
 
 ## Security Notes
 
-- The `SUPABASE_SERVICE_ROLE_KEY` should **ONLY** be used in the backend server
-- Never expose the service role key in client-side code or browser bundles
-- The backend API (`server/index.ts`) handles all Supabase queries using the service role key
-- The frontend only communicates with the backend API, never directly with Supabase
+- The `VITE_SUPABASE_ANON_KEY` is safe to use client-side
+- Configure Row Level Security (RLS) policies in Supabase to protect your data
+- The frontend queries Supabase directly using the anon key
+- RLS policies ensure users can only access data they're authorized to see
 
 ## API Endpoints
 
-### GET /api/questions
+### POST /api/n8n/workflows
 
-Fetches questions for a given workflow ID.
+Proxies n8n workflow requests to avoid CORS issues.
 
-**Query Parameters:**
-- `workflowId` (required): The workflow ID to filter questions by
+**Body:**
+- `baseUrl` (required): n8n base URL
+- `apiKey` (required): n8n API key
+- `cursor` (optional): pagination cursor
 
-**Response:**
-```json
-[
-  {
-    "id": "uuid",
-    "question": "Question text",
-    "workflow_id": "workflow-uuid",
-    "created_at": "2024-01-01T00:00:00Z"
-  }
-]
-```
+**Response:** n8n workflows data
+
+## Supabase Configuration
+
+The app queries the `questions` table directly from the browser. Ensure you have:
+
+1. A `questions` table with columns:
+   - `id` (uuid, primary key)
+   - `question` (text)
+   - `workflow_id` (text)
+   - `created_at` (timestamp)
+
+2. RLS policies configured appropriately (or disable RLS for testing)

@@ -240,20 +240,26 @@ const N8nWorkflows: React.FC = () => {
   };
 
   const fetchWorkflows = async (url: string, cursor?: string | null) => {
-    // Build the final URL
-    const endpoint = cursor 
-      ? `${url}/api/v1/workflows/?cursor=${cursor}`
-      : `${url}/api/v1/workflows/`;
+    // Use backend proxy to avoid CORS issues
+    // Frontend calls backend (localhost:3001), backend calls n8n API
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
     
-    const response = await fetch(endpoint, {
-      method: "GET",
+    const response = await fetch(`${API_BASE_URL}/api/n8n/workflows`, {
+      method: "POST",
       headers: {
-        "N8N_API_KEY": apiKey,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        baseUrl: url, // User-provided n8n Base URL
+        apiKey: apiKey, // User-provided API key
+        cursor: cursor || null,
+      }),
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      const errorData = await response.json().catch(() => ({}));
+      const errorMessage = errorData.error || errorData.message || `HTTP ${response.status}: ${response.statusText}`;
+      throw new Error(errorMessage);
     }
 
     const data: N8nApiResponse = await response.json();
@@ -335,7 +341,7 @@ const N8nWorkflows: React.FC = () => {
 
     try {
       // Webhook endpoint for question generation
-      const webhookUrl = "https://primary-production-a0f8d.up.railway.app/webhook-test/create/questions";
+      const webhookUrl = "https://primary-production-a0f8d.up.railway.app/webhook/create/questions";
       
       // Build request body with values from in-memory state
       const requestBody = {
@@ -359,8 +365,11 @@ const N8nWorkflows: React.FC = () => {
 
       await response.json();
 
-      setGenerationSuccess("Questions generation started successfully.");
+      setGenerationSuccess("Questions generation started successfully. Waiting for questions to be generated...");
       setSelectedWorkflowId(workflowId);
+      
+      // Wait 10 seconds for n8n to generate and save questions to Supabase
+      await new Promise(resolve => setTimeout(resolve, 10000));
       
       navigate(`/questions?workflowId=${encodeURIComponent(workflowId)}`);
     } catch (err) {
