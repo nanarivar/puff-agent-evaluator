@@ -9,10 +9,6 @@ const Index = () => {
     navigate('/login');
   };
 
-  const handleLearnMore = () => {
-    console.log('Learn More clicked');
-  };
-
   return (
     <Hero
       logo={puffLogo}
@@ -29,10 +25,6 @@ const Index = () => {
         primary: {
           text: "Log in",
           onClick: handleLogin
-        },
-        secondary: {
-          text: "View Documentation",
-          onClick: handleLearnMore
         }
       }}
     />
