@@ -5,8 +5,8 @@ import puffLogo from "@/assets/puff-character.png";
 const Index = () => {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate('/login');
+  const handleCreateQuestions = () => {
+    navigate('/n8n-workflows');
   };
 
   return (
@@ -23,8 +23,8 @@ const Index = () => {
       subtitle="PUFF is the meta-agent that reviews AI agents. Know which agents perform, why they perform, and how to improve them."
       buttons={{
         primary: {
-          text: "Log in",
-          onClick: handleLogin
+          text: "Create Questions",
+          onClick: handleCreateQuestions
         }
       }}
     />
