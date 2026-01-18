@@ -353,11 +353,10 @@ const Dashboard: React.FC = () => {
             <section className="max-w-xl mx-auto text-center flex flex-col items-center">
               <GlassButton
                 size="lg"
-                contentClassName="flex items-center gap-3 text-xl font-semibold"
+                contentClassName="text-xl font-semibold"
                 onClick={() => navigate('/n8n-workflows')}
               >
-                <span>Create Questions</span>
-                <Sparkles className="h-6 w-6" />
+                Create Questions
               </GlassButton>
               <p className="text-center text-white/40 text-sm mt-6 transition-opacity duration-500">
                 "{mrsPuffQuotes[quoteIndex]}" — Mrs. Puff

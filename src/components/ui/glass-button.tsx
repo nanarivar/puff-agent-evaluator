@@ -51,10 +51,10 @@ const GlassButton = React.forwardRef<HTMLButtonElement, GlassButtonProps>(
         {...props}
       >
         {/* Glow effect */}
-        <span className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <span className="absolute inset-0 rounded-full bg-gradient-to-b from-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
-        {/* Glass background */}
-        <span className="absolute inset-0 rounded-full bg-white/10 backdrop-blur-md border border-white/20 group-hover:bg-white/20 group-hover:border-white/30 transition-all duration-300" />
+        {/* Glass background - more transparent */}
+        <span className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-xl border border-white/15 group-hover:bg-white/10 group-hover:border-white/25 transition-all duration-300" />
         
         {/* Shine effect */}
         <span className="absolute inset-0 rounded-full overflow-hidden">
