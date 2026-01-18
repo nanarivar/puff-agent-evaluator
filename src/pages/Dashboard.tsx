@@ -288,7 +288,7 @@ const Dashboard: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={puffLogo} alt="PUFF" className="h-10 w-auto" />
+            <img src={puffLogo} alt="PUFF" className="h-10 w-10 rounded-full object-cover" />
             <span className="text-xl font-bold">PUFF</span>
           </div>
           <button 
@@ -310,7 +310,7 @@ const Dashboard: React.FC = () => {
               <img 
                 src={puffLogo} 
                 alt="Mrs. Puff" 
-                className="h-20 w-auto"
+                className="h-20 w-20 rounded-full object-cover"
                 style={{ filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.2))' }}
               />
             </div>
@@ -381,7 +381,7 @@ const Dashboard: React.FC = () => {
               <section className="max-w-2xl mx-auto">
                 <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                   <div className="flex items-start gap-4">
-                    <img src={puffLogo} alt="Mrs. Puff" className="h-12 w-auto flex-shrink-0" />
+                    <img src={puffLogo} alt="Mrs. Puff" className="h-12 w-12 rounded-full object-cover flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-2">Mrs. Puff's Feedback</h3>
                       <p className="text-white/70 leading-relaxed">

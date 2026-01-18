@@ -356,7 +356,7 @@ const Hero: React.FC<HeroProps> = ({
               <img 
                 src={logo} 
                 alt="PUFF" 
-                className="h-20 md:h-28 lg:h-36 w-auto object-contain animate-hero-fade-up animation-delay-200"
+                className="h-20 w-20 md:h-28 md:w-28 lg:h-36 lg:w-36 rounded-full object-cover animate-hero-fade-up animation-delay-200"
                 style={{ filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))' }}
               />
             )}

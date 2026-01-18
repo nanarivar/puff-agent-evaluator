@@ -236,7 +236,7 @@ const Login: React.FC = () => {
               <img 
                 src={puffLogo} 
                 alt="Mrs. Puff" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-16 rounded-full object-cover"
                 style={{ filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))' }}
               />
               <h1 className="text-4xl md:text-5xl font-bold text-white">PUFF</h1>
