@@ -20,6 +20,7 @@ interface HeroProps {
       onClick?: () => void;
     };
   };
+  logo?: string;
   className?: string;
 }
 
@@ -318,6 +319,7 @@ const Hero: React.FC<HeroProps> = ({
   headline,
   subtitle,
   buttons,
+  logo,
   className = ""
 }) => {
   const canvasRef = useShaderBackground();
@@ -349,14 +351,24 @@ const Hero: React.FC<HeroProps> = ({
         )}
 
         <div className="text-center space-y-6 max-w-5xl mx-auto px-4">
-          <div className="space-y-2">
+          <div className="flex items-center justify-center gap-4">
+            {logo && (
+              <img 
+                src={logo} 
+                alt="PUFF" 
+                className="h-20 md:h-28 lg:h-36 w-auto object-contain animate-hero-fade-up animation-delay-200"
+                style={{ filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))' }}
+              />
+            )}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white animate-hero-fade-up animation-delay-200">
               {headline.line1}
             </h1>
+          </div>
+          {headline.line2 && (
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white animate-hero-fade-up animation-delay-400">
               {headline.line2}
             </h1>
-          </div>
+          )}
           
           <div className="max-w-3xl mx-auto animate-hero-fade-up animation-delay-600">
             <p className="text-lg md:text-xl lg:text-2xl text-white/80 font-light leading-relaxed">
