@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import Hero from "@/components/ui/animated-shader-hero";
 import puffLogo from "@/assets/puff-character.png";
 
 const Index = () => {
-  const handleGetStarted = () => {
-    console.log('Get Started clicked');
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/login');
   };
 
   const handleLearnMore = () => {
@@ -25,7 +28,7 @@ const Index = () => {
       buttons={{
         primary: {
           text: "Log in",
-          onClick: handleGetStarted
+          onClick: handleLogin
         },
         secondary: {
           text: "View Documentation",
