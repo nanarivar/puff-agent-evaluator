@@ -329,7 +329,7 @@ const Dashboard: React.FC = () => {
         <div className="max-w-7xl mx-auto space-y-12">
           
           {/* Hero / Welcome Section */}
-          <section className="text-center space-y-6 py-8">
+          <section className="text-center space-y-6 py-8 pb-2">
             <div className="flex items-center justify-center gap-4 mb-4">
               <img 
                 src={puffLogo} 
@@ -350,7 +350,7 @@ const Dashboard: React.FC = () => {
 
           {!hasAutomations ? (
             /* Empty State - Create Questions CTA */
-            <section className="max-w-2xl mx-auto text-center flex flex-col items-center py-12">
+            <section className="max-w-2xl mx-auto text-center flex flex-col items-center py-4">
               <GlassButton
                 size="lg"
                 contentClassName="text-2xl font-semibold px-12 py-5"
