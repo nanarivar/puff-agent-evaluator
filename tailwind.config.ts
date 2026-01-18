@@ -63,6 +63,9 @@ export default {
           muted: "hsl(var(--hero-muted))",
           accent: "hsl(var(--hero-accent))",
         },
+        teal: "hsl(var(--teal))",
+        red: "hsl(var(--red))",
+        blue: "hsl(var(--blue))",
       },
       borderRadius: {
         lg: "var(--radius)",

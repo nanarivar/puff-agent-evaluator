@@ -446,14 +446,16 @@ void main(void) {
     uv+=.1*cos(i*vec2(.1+.01*i, .8)+i*i+T*.5+.1*uv.x);
     vec2 p=uv;
     float d=length(p);
-    // Red and blue color scheme for PUFF
-    col+=.00125/d*(cos(sin(i)*vec3(0.2,0.4,1.0))+1.);
+    // Teal, blue and red color scheme (#85cfbe, #037bc2, #ee1c2f)
+    col+=.00125/d*(cos(sin(i)*vec3(0.52,0.81,0.75))+1.);
     float b=noise(i+p+bg*1.731);
     col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
-    col=mix(col,vec3(bg*.15,bg*.05,bg*.2),d);
+    // Warm cream-tinted background mix
+    col=mix(col,vec3(bg*.25,bg*.18,bg*.12),d);
   }
-  // Add subtle red accent
-  col.r += 0.05 * bg;
+  // Add subtle teal and blue accent
+  col.g += 0.03 * bg;
+  col.b += 0.04 * bg;
   O=vec4(col,1);
 }`;
 
