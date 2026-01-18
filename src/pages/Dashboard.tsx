@@ -247,11 +247,34 @@ const RecommendationCard: React.FC<{
   </div>
 );
 
+// Mrs. Puff rotating quotes
+const mrsPuffQuotes = [
+  "Every great driver started with a learner's permit.",
+  "I've seen fewer crashes in a demolition derby.",
+  "At this rate, my insurance will never recover.",
+  "You remind me of my worst student... and that's saying something.",
+  "Deep breaths... this is why I have a stress ball.",
+  "Some students take years to learn. You might take decades.",
+  "I didn't think it was possible to fail this creatively.",
+  "My other students at least hit the brakes occasionally.",
+  "You drive like you're being chased by your own logic.",
+  "I'm not mad, I'm just... profoundly disappointed.",
+];
+
 const Dashboard: React.FC = () => {
   const { userName, logout } = useUser();
   const navigate = useNavigate();
   const [hasAutomations, setHasAutomations] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [quoteIndex, setQuoteIndex] = useState(0);
+
+  // Rotate quotes every 10 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQuoteIndex((prev) => (prev + 1) % mrsPuffQuotes.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (!userName) {
@@ -334,8 +357,8 @@ const Dashboard: React.FC = () => {
                 <Zap className="w-6 h-6" />
                 Create Questions
               </button>
-              <p className="text-center text-white/40 text-sm mt-6">
-                "Every great driver started with a learner's permit." — Mrs. Puff
+              <p className="text-center text-white/40 text-sm mt-6 transition-opacity duration-500">
+                "{mrsPuffQuotes[quoteIndex]}" — Mrs. Puff
               </p>
             </section>
           ) : (
