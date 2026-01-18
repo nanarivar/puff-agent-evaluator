@@ -350,15 +350,15 @@ const Dashboard: React.FC = () => {
 
           {!hasAutomations ? (
             /* Empty State - Create Questions CTA */
-            <section className="max-w-xl mx-auto text-center flex flex-col items-center">
+            <section className="max-w-2xl mx-auto text-center flex flex-col items-center py-12">
               <GlassButton
                 size="lg"
-                contentClassName="text-xl font-semibold"
+                contentClassName="text-2xl font-semibold px-12 py-5"
                 onClick={() => navigate('/n8n-workflows')}
               >
                 Create Questions
               </GlassButton>
-              <p className="text-center text-white/40 text-sm mt-6 transition-opacity duration-500">
+              <p className="text-center text-white/50 text-lg mt-10 transition-opacity duration-500 max-w-lg leading-relaxed">
                 "{mrsPuffQuotes[quoteIndex]}" — Mrs. Puff
               </p>
             </section>
