@@ -385,7 +385,7 @@ const N8nWorkflows: React.FC = () => {
         <div className="w-full max-w-2xl space-y-8 animate-fade-in">
           {/* Back Button */}
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/dashboard')}
             className="flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-4"
           >
             <ArrowLeft className="w-5 h-5" />
