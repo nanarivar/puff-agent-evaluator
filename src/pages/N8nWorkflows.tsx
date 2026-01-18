@@ -1,6 +1,6 @@
 import React, { useState, FormEvent, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Loader2 } from "lucide-react";
+import { Loader2, ArrowLeft } from "lucide-react";
 import puffLogo from '@/assets/puff-character.png';
 
 // WebGL Classes (same as hero)
@@ -383,6 +383,15 @@ const N8nWorkflows: React.FC = () => {
       
       <div className="relative z-10 flex flex-col items-center justify-start px-4 py-12 min-h-screen">
         <div className="w-full max-w-2xl space-y-8 animate-fade-in">
+          {/* Back Button */}
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-4"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Back</span>
+          </button>
+
           {/* Header */}
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-3">
