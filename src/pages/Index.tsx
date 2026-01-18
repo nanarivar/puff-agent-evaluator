@@ -16,8 +16,8 @@ const Index = () => {
         icons: ["◆"]
       }}
       headline={{
-        line1: "Puff: check your",
-        line2: "automatizations like a pro"
+        line1: "PUFF",
+        line2: ""
       }}
       subtitle="PUFF is the meta-agent that reviews AI agents. Know which agents perform, why they perform, and how to improve them."
       buttons={{

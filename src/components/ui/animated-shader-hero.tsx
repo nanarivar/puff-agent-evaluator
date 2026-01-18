@@ -446,16 +446,14 @@ void main(void) {
     uv+=.1*cos(i*vec2(.1+.01*i, .8)+i*i+T*.5+.1*uv.x);
     vec2 p=uv;
     float d=length(p);
-    // Teal, blue and red color scheme (#85cfbe, #037bc2, #ee1c2f)
-    col+=.00125/d*(cos(sin(i)*vec3(0.52,0.81,0.75))+1.);
+    // Black and white - grayscale only
+    float intensity = .00125/d*(cos(sin(i))+1.);
+    col+=vec3(intensity);
     float b=noise(i+p+bg*1.731);
-    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
-    // Warm cream-tinted background mix
-    col=mix(col,vec3(bg*.25,bg*.18,bg*.12),d);
+    col+=vec3(.002*b/length(max(p,vec2(b*p.x*.02,p.y))));
+    // Grayscale background mix
+    col=mix(col,vec3(bg*.2),d);
   }
-  // Add subtle teal and blue accent
-  col.g += 0.03 * bg;
-  col.b += 0.04 * bg;
   O=vec4(col,1);
 }`;
 
