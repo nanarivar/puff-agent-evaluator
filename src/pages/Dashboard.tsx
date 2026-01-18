@@ -325,28 +325,15 @@ const Dashboard: React.FC = () => {
           </section>
 
           {!hasAutomations ? (
-            /* Empty State - Upload CTA */
-            <section className="max-w-xl mx-auto">
-              <div 
-                onClick={handleUpload}
-                className="p-12 rounded-2xl border-2 border-dashed border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/30 transition-all cursor-pointer text-center group"
+            /* Empty State - Create Questions CTA */
+            <section className="max-w-xl mx-auto text-center">
+              <button
+                onClick={() => navigate('/n8n-workflows')}
+                className="w-full px-8 py-6 bg-white text-black hover:bg-white/90 rounded-2xl font-semibold text-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-white/20 flex items-center justify-center gap-3"
               >
-                <input 
-                  ref={fileInputRef}
-                  type="file" 
-                  className="hidden" 
-                  onChange={handleFileChange}
-                  accept=".json,.yaml,.yml"
-                />
-                <Upload className="w-12 h-12 mx-auto mb-4 text-white/40 group-hover:text-white/60 transition-colors" />
-                <h3 className="text-xl font-semibold mb-2">Upload Your Automation</h3>
-                <p className="text-white/60 mb-4">
-                  Drag and drop your automation file, or click to browse
-                </p>
-                <p className="text-sm text-white/40">
-                  Supports JSON, YAML formats
-                </p>
-              </div>
+                <Zap className="w-6 h-6" />
+                Create Questions
+              </button>
               <p className="text-center text-white/40 text-sm mt-6">
                 "Every great driver started with a learner's permit." — Mrs. Puff
               </p>
