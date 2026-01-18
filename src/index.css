@@ -2,110 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-/* PUFF Design System - Technical, Performance-Driven
-   Primary: Blue (trust, technology)
-   Accent: Red (performance, energy)
-   All colors in HSL format
+/* PUFF Design System - Cream & Warm Palette
+   Primary Background: #fffcc8 (Cream Yellow)
+   Text: #d5ac81 (Warm Brown)
+   Accents: #85cfbe (Teal), #ee1c2f (Red), #037bc2 (Blue)
 */
 
 @layer base {
   :root {
-    /* Core palette */
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
+    /* Core palette - Cream Yellow as dominant background */
+    --background: 55 100% 89%;
+    --foreground: 31 51% 47%;
 
-    --card: 222 47% 6%;
-    --card-foreground: 210 40% 98%;
+    --card: 55 100% 92%;
+    --card-foreground: 31 51% 47%;
 
-    --popover: 222 47% 6%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 55 100% 92%;
+    --popover-foreground: 31 51% 47%;
 
-    /* Primary: Deep Blue */
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Blue accent */
+    --primary: 203 97% 39%;
+    --primary-foreground: 55 100% 95%;
 
-    /* Secondary: Slate Blue */
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary: Teal/Mint */
+    --secondary: 161 42% 67%;
+    --secondary-foreground: 31 51% 30%;
 
-    /* Muted */
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    /* Muted - Subtle cream variations */
+    --muted: 55 60% 85%;
+    --muted-foreground: 31 51% 50%;
 
     /* Accent: Vibrant Red */
-    --accent: 0 84% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 356 86% 52%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 356 86% 52%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 221 83% 53%;
+    --border: 31 40% 75%;
+    --input: 31 40% 80%;
+    --ring: 203 97% 39%;
 
     --radius: 0.5rem;
 
-    /* Hero section tokens */
-    --hero-bg: 222 47% 2%;
-    --hero-foreground: 210 40% 98%;
-    --hero-muted: 215 20% 75%;
-    --hero-accent: 0 84% 60%;
-    --hero-badge-bg: 221 83% 53% / 0.1;
-    --hero-badge-border: 221 83% 53% / 0.3;
+    /* Hero section tokens - Dark for shader visibility */
+    --hero-bg: 220 25% 8%;
+    --hero-foreground: 55 100% 95%;
+    --hero-muted: 55 60% 80%;
+    --hero-accent: 356 86% 52%;
+    --hero-badge-bg: 161 42% 67% / 0.15;
+    --hero-badge-border: 161 42% 67% / 0.4;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(0 84% 60%));
-    --gradient-text-primary: linear-gradient(90deg, hsl(210 100% 80%), hsl(221 83% 65%), hsl(240 80% 70%));
-    --gradient-text-accent: linear-gradient(90deg, hsl(221 83% 65%), hsl(0 84% 60%), hsl(0 70% 50%));
+    /* Accent color tokens */
+    --teal: 161 42% 67%;
+    --red: 356 86% 52%;
+    --blue: 203 97% 39%;
+
+    /* Gradients using accent colors */
+    --gradient-primary: linear-gradient(135deg, hsl(203 97% 39%), hsl(161 42% 67%));
+    --gradient-text-primary: linear-gradient(90deg, hsl(161 42% 75%), hsl(203 97% 65%), hsl(161 42% 60%));
+    --gradient-text-accent: linear-gradient(90deg, hsl(203 97% 55%), hsl(356 86% 60%), hsl(356 70% 50%));
 
     /* Sidebar */
-    --sidebar-background: 222 47% 4%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 221 83% 53%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 221 83% 53%;
+    --sidebar-background: 55 80% 90%;
+    --sidebar-foreground: 31 51% 47%;
+    --sidebar-primary: 203 97% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 161 42% 67%;
+    --sidebar-accent-foreground: 31 51% 30%;
+    --sidebar-border: 31 40% 78%;
+    --sidebar-ring: 203 97% 39%;
   }
 
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
+    --background: 220 25% 8%;
+    --foreground: 55 100% 89%;
 
-    --card: 222 47% 6%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 25% 12%;
+    --card-foreground: 55 100% 89%;
 
-    --popover: 222 47% 6%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 55 100% 89%;
 
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 203 97% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 161 42% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 55 60% 70%;
 
-    --accent: 0 84% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 356 86% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 356 86% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 221 83% 53%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 203 97% 50%;
 
-    --sidebar-background: 222 47% 4%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 221 83% 53%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 221 83% 53%;
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 55 100% 85%;
+    --sidebar-primary: 203 97% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 161 42% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 203 97% 50%;
+
+    /* Dark hero tokens */
+    --hero-bg: 220 25% 4%;
+    --hero-foreground: 55 100% 95%;
+    --hero-muted: 55 60% 80%;
+    --hero-accent: 356 86% 55%;
+    --hero-badge-bg: 161 42% 50% / 0.15;
+    --hero-badge-border: 161 42% 50% / 0.4;
   }
 }
 
@@ -168,20 +181,20 @@
 
   .hero-button-primary:hover {
     @apply scale-105;
-    box-shadow: 0 20px 40px -10px hsl(221 83% 53% / 0.4);
+    box-shadow: 0 20px 40px -10px hsl(203 97% 39% / 0.4);
   }
 
   .hero-button-secondary {
     @apply px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 backdrop-blur-sm;
-    background-color: hsl(221 83% 53% / 0.1);
-    border: 1px solid hsl(221 83% 53% / 0.3);
-    color: hsl(210 100% 90%);
+    background-color: hsl(161 42% 67% / 0.15);
+    border: 1px solid hsl(161 42% 67% / 0.4);
+    color: hsl(55 100% 95%);
   }
 
   .hero-button-secondary:hover {
     @apply scale-105;
-    background-color: hsl(221 83% 53% / 0.2);
-    border-color: hsl(221 83% 53% / 0.5);
+    background-color: hsl(161 42% 67% / 0.25);
+    border-color: hsl(161 42% 67% / 0.6);
   }
 }
 
