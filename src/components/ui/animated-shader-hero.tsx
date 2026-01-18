@@ -330,36 +330,36 @@ const Hero: React.FC<HeroProps> = ({
         style={{ background: 'black' }}
       />
       
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-hero-foreground">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
         {trustBadge && (
           <div className="mb-8 animate-hero-fade-down">
-            <div className="flex items-center gap-2 px-6 py-3 bg-hero-badge backdrop-blur-md border border-hero-badge-border rounded-full text-sm">
+            <div className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm">
               {trustBadge.icons && (
                 <div className="flex gap-1">
                   {trustBadge.icons.map((icon, index) => (
-                    <span key={index} className="text-hero-accent">
+                    <span key={index} className="text-white">
                       {icon}
                     </span>
                   ))}
                 </div>
               )}
-              <span className="text-hero-muted">{trustBadge.text}</span>
+              <span className="text-white/90">{trustBadge.text}</span>
             </div>
           </div>
         )}
 
         <div className="text-center space-y-6 max-w-5xl mx-auto px-4">
           <div className="space-y-2">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold hero-gradient-text animate-hero-fade-up animation-delay-200">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white animate-hero-fade-up animation-delay-200">
               {headline.line1}
             </h1>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold hero-gradient-text-alt animate-hero-fade-up animation-delay-400">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white animate-hero-fade-up animation-delay-400">
               {headline.line2}
             </h1>
           </div>
           
           <div className="max-w-3xl mx-auto animate-hero-fade-up animation-delay-600">
-            <p className="text-lg md:text-xl lg:text-2xl text-hero-muted font-light leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/80 font-light leading-relaxed">
               {subtitle}
             </p>
           </div>
@@ -369,7 +369,7 @@ const Hero: React.FC<HeroProps> = ({
               {buttons.primary && (
                 <button 
                   onClick={buttons.primary.onClick}
-                  className="hero-button-primary"
+                  className="px-8 py-4 bg-white text-black hover:bg-white/90 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/20"
                 >
                   {buttons.primary.text}
                 </button>
@@ -377,7 +377,7 @@ const Hero: React.FC<HeroProps> = ({
               {buttons.secondary && (
                 <button 
                   onClick={buttons.secondary.onClick}
-                  className="hero-button-secondary"
+                  className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white/50 text-white rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
                 >
                   {buttons.secondary.text}
                 </button>
